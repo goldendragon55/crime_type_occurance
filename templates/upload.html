@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crime</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins: wght@200;300; 400; 500; 600; 700; 800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      background: rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(7px);
+      border-radius: 2px solid rgba(255, 255, 255, .2);
+    }
+
+    .logo {
+      text-decoration: none;
+      color: #fff;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 18px;
+      color: #fff;
+      margin-left: 35px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: #f00;
+    }
+
+    /* Updated CSS for full-screen video */
+    body {
+                background-image: url('../static/img/slider8.jpg');
+                background-repeat: no-repeat;
+                background-size: cover;
+                height: 100vh;
+                background-color: white; /* Set a white background for the page */
+            }
+  
+            form {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top: 80px; /* Adjust the margin-top value to center the form vertically */
+              }
+          
+            
+            /* Add this CSS code to create a box around the form */
+            .form-box {
+                width: 300px; /* Adjust the width of the box as needed */
+                margin: 90px auto; 
+                padding: 30px;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 15px;
+            }
+
+            .btn{
+                width: 30%;
+                height: 20%;
+                background-color: green;
+            }
+            .btn:hover{
+                background-color: red;
+            }
+            .ud{
+                background-color: gray;
+            }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo">crime</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/upload">Upload</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/perf">Performance Analysis</a>
+    </nav>
+  </header>
+  <div class="form-box">
+  <form action="/preview" method="post" enctype=multipart/form-data>
+    <br/>
+    <input type="file" name="datasetfile" id="file1" required  class="ud"/>
+    <br/>
+    <br/>
+    <input type="submit" value="Upload" class="btn">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crime</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins: wght@200;300; 400; 500; 600; 700; 800;900&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px 100px;
+      background: rgba(255, 255, 255, .1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      backdrop-filter: blur(7px);
+      border-radius: 2px solid rgba(255, 255, 255, .2);
+    }
+
+    .logo {
+      text-decoration: none;
+      color: black;
+      font-size: 25px;
+      font-weight: 600;
+    }
+
+    nav a {
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      margin-left: 35px;
+      transition: .3s;
+    }
+
+    nav a:hover {
+      color: #f00;
+    }
+
+    /* Updated CSS for full-screen video */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .sc{
+        padding-top: 5%;
+    }
+
+    .btn{
+      background-color: green;
+      width: 15%;
+      height: 20%;
+    }
+
+    .btn:hover{
+      background-color: antiquewhite;
+
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="#" class="logo">crime</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/login">Login</a>
+        <a href="/upload">Upload</a>
+        <a href="/prediction">Prediction</a>
+        <a href="/perf">Performance Analysis</a>
+        <a href="/chart">Chart</a>
+    </nav>
+  </header>
+<div class="sc">
+
+{{ df_view.to_html(classes="table striped",na_rep="-")| safe}}
+</div>
+
+<div class="form-group" style="padding:0px 250px 10px 40px;height:200px">
+  <input style="margin-left:300px" type="button" onclick="hideLoader()" class="btn" value="Click to Train | Test" />
+<div id="loading" style="display:None;margin-top:552950px"></div>
+</div>
+
+<script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+   <script type='text/javascript'>
+   
+function hideLoader() {  
+$('#loading').show(0).delay(10000).hide(0,function(){
+     alert("Training finished!");
+	 window.location = "{{url_for('prediction')}}";
+   });    
+}
+
+
+   </script>
+
+</body>
+</html>
